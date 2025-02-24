@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavan Agri Solutions</title>
+    <title>Dashboard - Pavan Agri Solutions</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script>
+        // Redirect to login if user is not logged in
+        if (!localStorage.getItem("isLoggedIn")) {
+            window.location.href = "login.html";
+        }
+    </script>
+
     <div class="container">
         <nav class="sidebar">
             <h2>Pavan Agri Solutions</h2>
@@ -16,7 +23,7 @@
                 <li><a href="crops.html">Crops</a></li>
                 <li><a href="resources.html">Resources</a></li>
                 <li><a href="reports.html">Reports</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><button id="logoutBtn">Logout</button></li>
             </ul>
         </nav>
 
@@ -43,6 +50,12 @@
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Logout functionality
+        document.getElementById("logoutBtn").addEventListener("click", function () {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        });
+    </script>
 </body>
 </html>
