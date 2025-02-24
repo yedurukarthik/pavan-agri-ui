@@ -10,34 +10,48 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Add New Farm
-    const farmForm = document.getElementById("farmForm");
-    if (farmForm) {
-        farmForm.addEventListener("submit", function (event) {
+    // Add New Resource
+    const resourceForm = document.getElementById("resourceForm");
+    if (resourceForm) {
+        resourceForm.addEventListener("submit", function (event) {
             event.preventDefault();
-
-            const farmName = document.getElementById("farmName").value;
-            const ownerName = document.getElementById("ownerName").value;
-            const location = document.getElementById("location").value;
-            const area = document.getElementById("area").value;
-            const syNo = document.getElementById("syNo").value;
-
-            const farmTableBody = document.getElementById("farmTableBody");
+            const tableBody = document.getElementById("resourceTableBody");
 
             const newRow = document.createElement("tr");
             newRow.innerHTML = `
-                <td>${farmName}</td>
-                <td>${ownerName}</td>
-                <td>${location}</td>
-                <td>${area}</td>
-                <td>${syNo}</td>
-                <td><a href="https://meebhoomi.ap.gov.in/" target="_blank">AP Meebhoomi</a></td>
+                <td>${resName.value}</td>
+                <td>${resLocation.value}</td>
+                <td>${resSkill.value}</td>
+                <td>${resType.value}</td>
+                <td>${resContact.value}</td>
+                <td>${resRating.value}</td>
             `;
+            tableBody.appendChild(newRow);
+            resourceForm.reset();
+        });
+    }
 
-            farmTableBody.appendChild(newRow);
+    // Add New Crop
+    const cropForm = document.getElementById("cropForm");
+    if (cropForm) {
+        cropForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const tableBody = document.getElementById("cropTableBody");
+            const plantedDate = new Date(cropPlanted.value);
+            const today = new Date();
+            const daysPassed = Math.floor((today - plantedDate) / (1000 * 60 * 60 * 24));
 
-            // Clear form fields
-            farmForm.reset();
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <td>${cropName.value}</td>
+                <td>${cropDensity.value}</td>
+                <td>${cropPlants.value}</td>
+                <td>${cropVariety.value}</td>
+                <td>${cropPlanted.value}</td>
+                <td>${daysPassed}</td>
+            `;
+            tableBody.appendChild(newRow);
+            cropForm.reset();
         });
     }
 });
