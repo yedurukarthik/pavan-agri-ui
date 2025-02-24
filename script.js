@@ -1,47 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Pavan Agri Solutions Loaded");
 
-    
-    const addFarmBtn = document.getElementById("addFarmBtn");
-    const farmFormContainer = document.getElementById("farmFormContainer");
-    const closeForm = document.getElementById("closeForm");
+    // Login Logic
+    const loginForm = document.getElementById("loginForm");
 
-    if (addFarmBtn) {
-        addFarmBtn.addEventListener("click", function () {
-            farmFormContainer.style.display = "block";
-        });
-    }
-
-    if (closeForm) {
-        closeForm.addEventListener("click", function () {
-            farmFormContainer.style.display = "none";
-        });
-    }
-
-    
-    const farmForm = document.getElementById("farmForm");
-    const farmTableBody = document.getElementById("farmTableBody");
-
-    if (farmForm) {
-        farmForm.addEventListener("submit", function (event) {
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
-            
-            const farmName = document.getElementById("farmName").value;
-            const location = document.getElementById("location").value;
-            const size = document.getElementById("size").value;
-            const owner = document.getElementById("owner").value;
 
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td>${farmName}</td>
-                <td>${location}</td>
-                <td>${size}</td>
-                <td>${owner}</td>
-                <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
-            `;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMsg = document.getElementById("errorMsg");
 
-            farmTableBody.appendChild(newRow);
-            farmFormContainer.style.display = "none";
+            // Hardcoded Login (Replace with backend API in future)
+            if (username === "admin" && password === "password123") {
+                localStorage.setItem("isLoggedIn", "true");
+                window.location.href = "index.html"; // Redirect to Dashboard
+            } else {
+                errorMsg.textContent = "Invalid username or password!";
+            }
         });
+    }
+
+    // Redirect if user is not logged in (For all pages except login)
+    if (!window.location.href.includes("login.html")) {
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        if (!isLoggedIn) {
+            window.location.href = "login.html";
+        }
     }
 });
