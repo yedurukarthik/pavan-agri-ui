@@ -1,9 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("System Loaded!");
 
-    // Redirect if not logged in
+    // Check if user is logged in
     if (!localStorage.getItem("isLoggedIn") && !window.location.pathname.includes("login.html")) {
         window.location.href = "login.html";
+    }
+
+    // Show dashboard only after login
+    const dashboard = document.getElementById("dashboard");
+    if (dashboard) {
+        if (localStorage.getItem("isLoggedIn")) {
+            dashboard.style.display = "block";
+        } else {
+            dashboard.style.display = "none";
+        }
     }
 
     // Login Functionality
@@ -35,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Data Handling
+    // Function to load data
     function loadData(key, defaultData) {
         return JSON.parse(localStorage.getItem(key)) || defaultData;
     }
@@ -44,13 +54,15 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem(key, JSON.stringify(data));
     }
 
-    // Load Farms
+    // Display Farms Data
     const farmTable = document.getElementById("farmTable");
     if (farmTable) {
         const farms = loadData("farms", [
             { name: "Farm-1", owner: "Pavan", location: "Devathapuram", area: "13.5 Acr", syNo: "120", link: "https://meebhoomi.ap.gov.in/" },
             { name: "Farm-2", owner: "Prasanna", location: "JR Palle", area: "3.5 Acr", syNo: "121", link: "https://meebhoomi.ap.gov.in/" }
         ]);
+        saveData("farms", farms); // Save the default data
+        farmTable.innerHTML = ""; // Clear previous data
         farms.forEach(farm => {
             farmTable.innerHTML += `<tr>
                 <td>${farm.name}</td>
@@ -63,12 +75,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Load Crops
+    // Display Crops Data
     const cropTable = document.getElementById("cropTable");
     if (cropTable) {
         const crops = loadData("crops", [
             { name: "Lime", density: "100", plants: "350", variety: "Sweet", planted: "2022-03-11", days: "560" }
         ]);
+        saveData("crops", crops);
+        cropTable.innerHTML = "";
         crops.forEach(crop => {
             cropTable.innerHTML += `<tr>
                 <td>${crop.name}</td>
@@ -81,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Load Resources
+    // Display Resources Data
     const resourceTable = document.getElementById("resourceTable");
     if (resourceTable) {
         const resources = loadData("resources", [
@@ -89,6 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: "Sana", location: "JR Palle", skill: "Tractor-Plowing-Trolley-Watering-Spraying-Weeding", type: "Daily", contact: "92300456789", rating: "Average" },
             { name: "Seenu", location: "Devathapuram", skill: "Pipeline and Pruning", type: "Daily", contact: "92300456789", rating: "Good" }
         ]);
+        saveData("resources", resources);
+        resourceTable.innerHTML = "";
         resources.forEach(resource => {
             resourceTable.innerHTML += `<tr>
                 <td>${resource.name}</td>
