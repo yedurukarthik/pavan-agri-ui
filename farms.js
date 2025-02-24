@@ -1,22 +1,25 @@
-document.addEventListener("DOMContentLoaded", loadFarms);
+const farmsData = JSON.parse(localStorage.getItem("farms")) || [
+    { name: "Farm-1", owner: "Pavan", location: "Devathapuram", area: "13.5 Acr", syNo: "120", attachment: "https://meebhoomi.ap.gov.in/" },
+    { name: "Farm-2", owner: "Prasanna", location: "JR Palle", area: "3.5 Acr", syNo: "121", attachment: "https://meebhoomi.ap.gov.in/" }
+];
 
-function loadFarms() {
-    const tableBody = document.getElementById("farmsTableBody");
-    const farmsData = JSON.parse(localStorage.getItem("farms")) || [];
+const farmsTable = document.getElementById("farmsTableBody");
 
-    tableBody.innerHTML = ""; // Clear previous entries
+function renderFarms() {
+    farmsTable.innerHTML = "";
     farmsData.forEach((farm, index) => {
-        let row = `<tr>
+        const row = `<tr>
             <td>${farm.name}</td>
             <td>${farm.owner}</td>
             <td>${farm.location}</td>
             <td>${farm.area}</td>
             <td>${farm.syNo}</td>
-            <td><a href="https://meebhoomi.ap.gov.in/" target="_blank">AP Meebhoomi</a></td>
-            <td><button class="button" onclick="deleteFarm(${index})">Delete</button></td>
+            <td><a href="${farm.attachment}" target="_blank">AP Meebhoomi</a></td>
+            <td><button onclick="deleteFarm(${index})">Delete</button></td>
         </tr>`;
-        tableBody.innerHTML += row;
+        farmsTable.innerHTML += row;
     });
+    localStorage.setItem("farms", JSON.stringify(farmsData));
 }
 
 function addFarm() {
@@ -26,19 +29,14 @@ function addFarm() {
     const area = document.getElementById("area").value;
     const syNo = document.getElementById("syNo").value;
 
-    if (name && owner && location && area && syNo) {
-        let farmsData = JSON.parse(localStorage.getItem("farms")) || [];
-        farmsData.push({ name, owner, location, area, syNo });
-        localStorage.setItem("farms", JSON.stringify(farmsData));
-        loadFarms(); // Refresh table
-    } else {
-        alert("Please fill all fields!");
-    }
+    farmsData.push({ name, owner, location, area, syNo, attachment: "https://meebhoomi.ap.gov.in/" });
+    renderFarms();
 }
 
 function deleteFarm(index) {
-    let farmsData = JSON.parse(localStorage.getItem("farms")) || [];
     farmsData.splice(index, 1);
-    localStorage.setItem("farms", JSON.stringify(farmsData));
-    loadFarms(); // Refresh table
+    renderFarms();
 }
+
+document.getElementById("addFarmBtn").addEventListener("click", addFarm);
+document.addEventListener("DOMContentLoaded", renderFarms);
