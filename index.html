@@ -1,62 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavan Agri Solutions</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div id="dashboard" style="display: none;">
-        <h1>Pavan Agri Solutions</h1>
-        <button id="logoutBtn">Logout</button>
+<div id="dashboard" class="container" style="display: none;">
+    <h1>Pavan Agri Solutions</h1>
+    <button id="logoutBtn" class="button">Logout</button>
+    <h2>Dashboard</h2>
+    <p>Total Farms: 12</p>
+    <p>Total Crops: 8</p>
+    <p>Active Farmers: 34</p>
+    <p>Reports Generated: 15</p>
+</div>
+<script>
+    if (!localStorage.getItem("isLoggedIn")) {
+        window.location.href = "login.html";
+    } else {
+        document.getElementById("dashboard").style.display = "block";
+    }
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = "login.html";
+    });
+</script>
 
-        <h2>Dashboard</h2>
-        <p>Total Farms: 12</p>
-        <p>Total Crops: 8</p>
-        <p>Active Farmers: 34</p>
-        <p>Reports Generated: 15</p>
-
-        <h2>Farms</h2>
-        <table border="1">
-            <tr>
-                <th>Farm Name</th>
-                <th>Owner Name</th>
-                <th>Location</th>
-                <th>Area</th>
-                <th>Sy No</th>
-                <th>Attachments</th>
-            </tr>
-            <tbody id="farmTable"></tbody>
-        </table>
-
-        <h2>Crops</h2>
-        <table border="1">
-            <tr>
-                <th>Crop Name</th>
-                <th>Density</th>
-                <th>No. of Plants/Acr</th>
-                <th>Variety</th>
-                <th>Planted Date</th>
-                <th>No. of Days</th>
-            </tr>
-            <tbody id="cropTable"></tbody>
-        </table>
-
-        <h2>Resources</h2>
-        <table border="1">
-            <tr>
-                <th>Name</th>
-                <th>Available Location</th>
-                <th>Skill</th>
-                <th>Type</th>
-                <th>Contact No</th>
-                <th>Rating</th>
-            </tr>
-            <tbody id="resourceTable"></tbody>
-        </table>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+/* Ensure data persistence using localStorage */
+<script src="scripts/main.js"></script>
