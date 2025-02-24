@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script>
+        // Redirect to login if user is not logged in
+        if (!localStorage.getItem("isLoggedIn")) {
+            window.location.href = "login.html";
+        }
+    </script>
+
     <div class="container">
         <nav class="sidebar">
             <h2>Pavan Agri Solutions</h2>
@@ -14,15 +21,63 @@
                 <li><a href="index.html">Dashboard</a></li>
                 <li><a href="farms.html">Farms</a></li>
                 <li><a href="crops.html">Crops</a></li>
-                <li><a href="resources.html">Resources</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
                 <li><a href="reports.html">Reports</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><button id="logoutBtn">Logout</button></li>
             </ul>
         </nav>
 
         <main class="content">
             <h1>Resources</h1>
-            <p>All agricultural resources will be displayed here.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Available Location</th>
+                        <th>Skill</th>
+                        <th>Type</th>
+                        <th>Contact No</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody id="resourceTableBody">
+                    <tr>
+                        <td>Naresh</td>
+                        <td>Simhadripuram</td>
+                        <td>Electrician-Motorpump-starter</td>
+                        <td>Service</td>
+                        <td>90000456789</td>
+                        <td>Good</td>
+                    </tr>
+                    <tr>
+                        <td>Sana</td>
+                        <td>JR Palle</td>
+                        <td>Tractor-Plowing-Trolley-Watering-Spraying-Weed</td>
+                        <td>Daily</td>
+                        <td>92300456789</td>
+                        <td>Average</td>
+                    </tr>
+                    <tr>
+                        <td>Seenu</td>
+                        <td>Devathapuram</td>
+                        <td>Pipeline and Pruning</td>
+                        <td>Daily</td>
+                        <td>92300456789</td>
+                        <td>Good</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Add New Resource</h2>
+            <form id="resourceForm">
+                <input type="text" id="resName" placeholder="Name" required>
+                <input type="text" id="resLocation" placeholder="Available Location" required>
+                <input type="text" id="resSkill" placeholder="Skill" required>
+                <input type="text" id="resType" placeholder="Type" required>
+                <input type="text" id="resContact" placeholder="Contact No" required>
+                <input type="text" id="resRating" placeholder="Rating" required>
+                <button type="submit">Add Resource</button>
+            </form>
         </main>
     </div>
 
