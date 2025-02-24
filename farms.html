@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farms - Pavan Agri Solutions</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<div class="container">
     <h2>Farms</h2>
-
-    <form id="addFarmForm">
-        <input type="text" id="farmName" placeholder="Farm Name" required>
-        <input type="text" id="ownerName" placeholder="Owner Name" required>
-        <input type="text" id="location" placeholder="Location" required>
-        <input type="text" id="area" placeholder="Area" required>
-        <input type="text" id="syNo" placeholder="Sy No" required>
-        <button type="submit">Add Farm</button>
-    </form>
-
     <table>
-        <thead>
-            <tr>
-                <th>Farm Name</th>
-                <th>Owner Name</th>
-                <th>Location</th>
-                <th>Area</th>
-                <th>Sy No</th>
-                <th>Attachments</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="farmTableBody">
-            <!-- Farms will be inserted here from JavaScript -->
-        </tbody>
+        <tr>
+            <th>Farm Name</th>
+            <th>Owner Name</th>
+            <th>Location</th>
+            <th>Area</th>
+            <th>Sy No</th>
+            <th>Attachments</th>
+        </tr>
+        <tbody id="farmsTableBody"></tbody>
     </table>
-
-    <button id="logoutBtn">Logout</button>
-
-    <script src="script.js"></script>
-</body>
-</html>
+</div>
+<script src="scripts/farms.js"></script>
