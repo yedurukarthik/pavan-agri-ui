@@ -8,16 +8,26 @@
     <div class="container">
         <h2>Crops</h2>
         <table>
-            <tr>
-                <th>Crop Name</th>
-                <th>Density</th>
-                <th>No. of Plants/Acr</th>
-                <th>Variety</th>
-                <th>Planted Date</th>
-                <th>No of Days</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Crop Name</th>
+                    <th>Density</th>
+                    <th>No. of Plants/Acr</th>
+                    <th>Variety</th>
+                    <th>Planted Date</th>
+                    <th>No. of Days</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
             <tbody id="cropsTableBody"></tbody>
         </table>
+        <h3>Add Crop</h3>
+        <input type="text" id="cropName" placeholder="Crop Name">
+        <input type="number" id="density" placeholder="Density">
+        <input type="number" id="plants" placeholder="No. of Plants/Acr">
+        <input type="text" id="variety" placeholder="Variety">
+        <input type="date" id="planted" placeholder="Planted Date">
+        <button class="button" onclick="addCrop()">Add Crop</button>
     </div>
 </body>
 </html>
