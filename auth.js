@@ -10,7 +10,6 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     }
 });
 
-/* Ensure user stays logged in */
 document.addEventListener("DOMContentLoaded", function() {
     if (!localStorage.getItem("isLoggedIn")) {
         window.location.href = "login.html";
