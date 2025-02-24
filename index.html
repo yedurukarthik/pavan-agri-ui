@@ -1,23 +1,28 @@
-<div id="dashboard" class="container" style="display: none;">
-    <h1>Pavan Agri Solutions</h1>
-    <button id="logoutBtn" class="button">Logout</button>
-    <h2>Dashboard</h2>
-    <p>Total Farms: 12</p>
-    <p>Total Crops: 8</p>
-    <p>Active Farmers: 34</p>
-    <p>Reports Generated: 15</p>
-</div>
-<script>
-    if (!localStorage.getItem("isLoggedIn")) {
-        window.location.href = "login.html";
-    } else {
-        document.getElementById("dashboard").style.display = "block";
-    }
-    document.getElementById("logoutBtn").addEventListener("click", function() {
-        localStorage.removeItem("isLoggedIn");
-        window.location.href = "login.html";
-    });
-</script>
-
-/* Ensure data persistence using localStorage */
-<script src="scripts/main.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pavan Agri Solutions</h1>
+        <button id="logoutBtn" class="button">Logout</button>
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="farms.html">Farms</a></li>
+            <li><a href="crops.html">Crops</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </div>
+    <script>
+        if (!localStorage.getItem("isLoggedIn")) {
+            window.location.href = "login.html";
+        }
+        document.getElementById("logoutBtn").addEventListener("click", function() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>
