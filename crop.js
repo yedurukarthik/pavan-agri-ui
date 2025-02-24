@@ -43,3 +43,4 @@ function deleteCrop(index) {
     localStorage.setItem("crops", JSON.stringify(cropsData));
     loadCrops(); // Refresh table
 }
+
