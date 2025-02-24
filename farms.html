@@ -8,16 +8,26 @@
     <div class="container">
         <h2>Farms</h2>
         <table>
-            <tr>
-                <th>Farm Name</th>
-                <th>Owner Name</th>
-                <th>Location</th>
-                <th>Area</th>
-                <th>Sy No</th>
-                <th>Attachments</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Farm Name</th>
+                    <th>Owner Name</th>
+                    <th>Location</th>
+                    <th>Area</th>
+                    <th>Sy No</th>
+                    <th>Attachments</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
             <tbody id="farmsTableBody"></tbody>
         </table>
+        <h3>Add Farm</h3>
+        <input type="text" id="farmName" placeholder="Farm Name">
+        <input type="text" id="ownerName" placeholder="Owner Name">
+        <input type="text" id="location" placeholder="Location">
+        <input type="text" id="area" placeholder="Area">
+        <input type="text" id="syNo" placeholder="Sy No">
+        <button class="button" onclick="addFarm()">Add Farm</button>
     </div>
 </body>
 </html>
