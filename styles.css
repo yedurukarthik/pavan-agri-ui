@@ -1,89 +1,50 @@
-/* Login Page */
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Login Page Styling */
 .login-container {
     width: 300px;
     margin: 100px auto;
     padding: 20px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px #ccc;
     text-align: center;
+    border-radius: 8px;
 }
 
 .login-container h2 {
     margin-bottom: 20px;
 }
 
-input {
-    width: 100%;
+.login-container input {
+    width: 90%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button {
+.login-container button {
     width: 100%;
     padding: 10px;
-    background: #2E8B57;
+    background: green;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: 16px;
 }
 
-button:hover {
-    background: #246d44;
+.login-container button:hover {
+    background: darkgreen;
 }
 
+/* Error Message */
 .error {
     color: red;
-    margin-top: 10px;
+    font-size: 14px;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background: #2E8B57;
-    color: white;
-}
-
-a {
-    color: blue;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-form {
-    margin-top: 20px;
-}
-
-input {
-    margin: 5px;
-    padding: 8px;
-    width: 200px;
-}
-
-button {
-    padding: 8px 15px;
-    background: #2E8B57;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #246d44;
-}
-
