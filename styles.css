@@ -1,46 +1,41 @@
-
-.card-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: white;
+/* Login Page */
+.login-container {
+    width: 300px;
+    margin: 100px auto;
     padding: 20px;
+    background: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    min-width: 200px;
     text-align: center;
 }
 
-table {
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+input {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
     padding: 10px;
-    text-align: left;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-th {
-    background-color: #2E8B57;
+button {
+    width: 100%;
+    padding: 10px;
+    background: #2E8B57;
     color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
+button:hover {
+    background: #246d44;
+}
 
-.modal {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.error {
+    color: red;
+    margin-top: 10px;
 }
