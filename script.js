@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Login System Loaded!");
 
-    // Check if already logged in
-    if (localStorage.getItem("isLoggedIn") === "true" && window.location.pathname.includes("login.html")) {
-        window.location.href = "index.html"; // Redirect if already logged in
+    // Redirect to login page if not logged in
+    if (!localStorage.getItem("isLoggedIn") && !window.location.pathname.includes("login.html")) {
+        window.location.href = "login.html";
     }
 
     // Login Functionality
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
-            console.log("Login button clicked!"); // Debugging Log
+            console.log("Login button clicked!");
 
             const username = document.getElementById("username").value.trim();
             const password = document.getElementById("password").value.trim();
@@ -33,10 +33,5 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem("isLoggedIn");
             window.location.href = "login.html";
         });
-    }
-
-    // Redirect to login if not logged in
-    if (!localStorage.getItem("isLoggedIn") && !window.location.pathname.includes("login.html")) {
-        window.location.href = "login.html";
     }
 });
