@@ -1,69 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crops - Pavan Agri Solutions</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <script>
-        // Redirect to login if user is not logged in
-        if (!localStorage.getItem("isLoggedIn")) {
-            window.location.href = "login.html";
-        }
-    </script>
-
-    <div class="container">
-        <nav class="sidebar">
-            <h2>Pavan Agri Solutions</h2>
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="farms.html">Farms</a></li>
-                <li><a href="crops.html" class="active">Crops</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="reports.html">Reports</a></li>
-                <li><button id="logoutBtn">Logout</button></li>
-            </ul>
-        </nav>
-
-        <main class="content">
-            <h1>Crops</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Crop Name</th>
-                        <th>Density</th>
-                        <th>No Plants/Acr</th>
-                        <th>Variety</th>
-                        <th>Planted</th>
-                        <th>No of Days</th>
-                    </tr>
-                </thead>
-                <tbody id="cropTableBody">
-                    <tr>
-                        <td>Lime</td>
-                        <td>100</td>
-                        <td>350</td>
-                        <td>Sweet</td>
-                        <td>2022-03-11</td>
-                        <td>560</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Add New Crop</h2>
-            <form id="cropForm">
-                <input type="text" id="cropName" placeholder="Crop Name" required>
-                <input type="text" id="cropDensity" placeholder="Density" required>
-                <input type="text" id="cropPlants" placeholder="No Plants/Acr" required>
-                <input type="text" id="cropVariety" placeholder="Variety" required>
-                <input type="date" id="cropPlanted" required>
-                <button type="submit">Add Crop</button>
-            </form>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="container">
+    <h2>Crops</h2>
+    <table>
+        <tr>
+            <th>Crop Name</th>
+            <th>Density</th>
+            <th>No Plants/Acr</th>
+            <th>Variety</th>
+            <th>Planted</th>
+            <th>No of Days</th>
+        </tr>
+        <tbody id="cropsTableBody"></tbody>
+    </table>
+</div>
+<script src="scripts/crops.js"></script>
